@@ -12,6 +12,7 @@ use swc_core::{
 mod tests;
 
 #[derive(Deserialize, Default)]
+#[serde(default)]
 pub struct Options {
     exclude: Vec<String>,
 }

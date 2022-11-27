@@ -1,7 +1,7 @@
 use swc_core::{
-    common::DUMMY_SP,
+    common::util::take::Take,
     ecma::{
-        ast::{CallExpr, EmptyStmt, MemberExpr, Stmt},
+        ast::{CallExpr, Ident, MemberExpr, Stmt},
         transforms::testing::test,
         visit::{as_folder, VisitMut, VisitMutWith},
     },
@@ -9,35 +9,44 @@ use swc_core::{
 
 pub struct RemoveConsole;
 
-fn is_console(expr: &MemberExpr) -> bool {
-    return expr.obj.clone().ident().unwrap().sym.eq("console");
-}
+impl RemoveConsole {
+    fn eq(&self, ident: Option<&Ident>, eq_name: &str) -> bool {
+        if let Some(ident) = ident {
+            return ident.sym.eq(eq_name);
+        }
+        false
+    }
 
-fn is_log(expr: &MemberExpr) -> bool {
-    return expr.prop.clone().ident().unwrap().sym.eq("log");
-}
+    fn is_console(&self, expr: &MemberExpr) -> bool {
+        let obj = &expr.obj;
+        self.eq(obj.as_ident(), "console")
+    }
 
-fn should_remove(e: &CallExpr) -> bool {
-    if e.callee.is_expr() {
-        let member_expr = e.callee.as_expr().unwrap().as_member().unwrap();
-        if is_console(member_expr) {
-            if is_log(member_expr) {
-                return true;
+    fn is_log(&self, expr: &MemberExpr) -> bool {
+        let prop = &expr.prop;
+        self.eq(prop.as_ident(), "log")
+    }
+
+    fn should_remove(&self, e: &CallExpr) -> bool {
+        if e.callee.is_expr() {
+            if let Some(expr) = e.callee.as_expr() {
+                if let Some(expr) = expr.as_member() {
+                    return self.is_console(expr) && self.is_log(expr);
+                }
             }
         }
+        false
     }
-    return false;
 }
 
 impl VisitMut for RemoveConsole {
-    fn visit_mut_stmt(&mut self, e: &mut Stmt) {
-        e.visit_mut_children_with(self);
+    fn visit_mut_stmt(&mut self, stmt: &mut Stmt) {
+        stmt.visit_mut_children_with(self);
 
-        if let Some(expr_stmt) = e.as_expr() {
-            if let Some(e_2) = expr_stmt.expr.as_call() {
-                if should_remove(e_2) {
-                    println!("should remove !!!");
-                    *e = Stmt::Empty(EmptyStmt { span: DUMMY_SP });
+        if let Stmt::Expr(expr) = stmt {
+            if let Some(call_expr) = expr.expr.as_call() {
+                if self.should_remove(call_expr) {
+                    stmt.take();
                 }
             }
         }
@@ -48,8 +57,8 @@ test!(
     Default::default(),
     |_| as_folder(RemoveConsole),
     remove_1,
-    r#"let a = 1;console.log("hello")"#,
-    r#"let a = 1;;"#
+    r#"let a = 1;console.log("hello");let b = 2;"#,
+    r#"let a = 1;;let b = 2;"#
 );
 
 test!(

@@ -1,6 +1,6 @@
 {
     "name": "swc-plugin-remove-console",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "a swc plugin helps to remove console statement",
     "author": "alexzhang1030",
     "license": "MIT",

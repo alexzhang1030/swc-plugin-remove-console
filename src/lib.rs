@@ -1,3 +1,4 @@
+use serde::Deserialize;
 use swc_core::{
     common::util::take::Take,
     ecma::{
@@ -10,7 +11,16 @@ use swc_core::{
 #[cfg(test)]
 mod tests;
 
-pub struct RemoveConsole;
+#[derive(Deserialize, Default)]
+pub struct Options {
+    exclude: Vec<String>,
+}
+
+const SPECIFY_SUBCOMMAND: [&str; 4] = ["log", "warn", "error", "info"];
+
+pub struct RemoveConsole {
+    options: Options,
+}
 
 impl RemoveConsole {
     fn eq(&self, ident: Option<&Ident>, eq_name: &str) -> bool {
@@ -25,16 +35,24 @@ impl RemoveConsole {
         self.eq(obj.as_ident(), "console")
     }
 
-    fn is_log(&self, expr: &MemberExpr) -> bool {
+    fn is_specify_subcommand(&self, expr: &MemberExpr) -> bool {
         let prop = &expr.prop;
-        self.eq(prop.as_ident(), "log")
+        for command in SPECIFY_SUBCOMMAND {
+            if self.options.exclude.contains(&command.to_string()) {
+                continue;
+            }
+            if self.eq(prop.as_ident(), command) {
+                return true;
+            }
+        }
+        return false;
     }
 
     fn should_remove(&self, e: &CallExpr) -> bool {
         if e.callee.is_expr() {
             if let Some(expr) = e.callee.as_expr() {
                 if let Some(expr) = expr.as_member() {
-                    return self.is_console(expr) && self.is_log(expr);
+                    return self.is_console(expr) && self.is_specify_subcommand(expr);
                 }
             }
         }
@@ -57,6 +75,13 @@ impl VisitMut for RemoveConsole {
 }
 
 #[plugin_transform]
-pub fn remove_console(program: Program, _metadata: TransformPluginProgramMetadata) -> Program {
-    program.fold_with(&mut as_folder(RemoveConsole))
+pub fn remove_console(program: Program, metadata: TransformPluginProgramMetadata) -> Program {
+    let options = metadata
+        .get_transform_plugin_config()
+        .map(|json| {
+            serde_json::from_str::<Options>(&json)
+                .expect("failed to deserialize options for remove-console plugin")
+        })
+        .unwrap_or_default();
+    program.fold_with(&mut as_folder(RemoveConsole { options }))
 }

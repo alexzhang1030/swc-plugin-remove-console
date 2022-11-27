@@ -1,9 +1,10 @@
 use swc_core::{
     common::util::take::Take,
     ecma::{
-        ast::{CallExpr, Ident, MemberExpr, Stmt},
-        visit::{VisitMut, VisitMutWith},
+        ast::{CallExpr, Ident, MemberExpr, Program, Stmt},
+        visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
     },
+    plugin::{plugin_transform, proxies::TransformPluginProgramMetadata},
 };
 
 #[cfg(test)]
@@ -53,4 +54,9 @@ impl VisitMut for RemoveConsole {
             }
         }
     }
+}
+
+#[plugin_transform]
+pub fn remove_console(program: Program, _metadata: TransformPluginProgramMetadata) -> Program {
+    program.fold_with(&mut as_folder(RemoveConsole))
 }

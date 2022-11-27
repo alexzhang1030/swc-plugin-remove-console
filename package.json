@@ -1,17 +1,17 @@
 {
-    "name": "swc-plugin-remove-console",
-    "version": "0.0.4",
-    "description": "a swc plugin helps to remove console statement",
-    "author": "alexzhang1030",
-    "license": "MIT",
-    "keywords": [
-        "swc-plugin"
-    ],
-    "main": "swc_plugin_remove_console.wasm",
-    "scripts": {
-        "prepublishOnly": "cargo build --target wasm32-wasi --release && cp target/wasm32-wasi/release/swc_plugin_remove_console.wasm ."
-    },
-    "files": [
-        "swc_plugin_remove_console.wasm"
-    ]
+  "name": "swc-plugin-remove-console",
+  "version": "0.0.5",
+  "description": "a swc plugin helps to remove console statement",
+  "author": "alexzhang1030",
+  "license": "MIT",
+  "keywords": [
+    "swc-plugin"
+  ],
+  "main": "swc_plugin_remove_console.wasm",
+  "scripts": {
+    "prepublishOnly": "cargo build --target wasm32-wasi --release && cp target/wasm32-wasi/release/swc_plugin_remove_console.wasm ."
+  },
+  "files": [
+    "swc_plugin_remove_console.wasm"
+  ]
 }

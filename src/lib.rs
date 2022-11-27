@@ -2,10 +2,12 @@ use swc_core::{
     common::util::take::Take,
     ecma::{
         ast::{CallExpr, Ident, MemberExpr, Stmt},
-        transforms::testing::test,
-        visit::{as_folder, VisitMut, VisitMutWith},
+        visit::{VisitMut, VisitMutWith},
     },
 };
+
+#[cfg(test)]
+mod tests;
 
 pub struct RemoveConsole;
 
@@ -52,19 +54,3 @@ impl VisitMut for RemoveConsole {
         }
     }
 }
-
-test!(
-    Default::default(),
-    |_| as_folder(RemoveConsole),
-    remove_1,
-    r#"let a = 1;console.log("hello");let b = 2;"#,
-    r#"let a = 1;;let b = 2;"#
-);
-
-test!(
-    Default::default(),
-    |_| as_folder(RemoveConsole),
-    remove_2,
-    r#";() => { console.log('hello') }"#,
-    r#";() => {;}"#
-);

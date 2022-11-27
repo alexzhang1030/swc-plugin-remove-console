@@ -1,6 +1,6 @@
 # swc plugin remove-console
 
-A swc plugin helps you remove your `console.*` code
+A swc plugin helps you remove your `console.*` statement
 
 Notice `*` now support:
 
@@ -13,7 +13,7 @@ Notice `*` now support:
 
 First ensure you've installed `swc` and `swc-plugin-remove-console`, then add following these codes in your `.swcrc` file
 
-```json
+```json5
 {
   "jsc": {
     "experimental": {

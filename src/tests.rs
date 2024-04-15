@@ -1,8 +1,8 @@
 use crate::{Options, RemoveConsole};
-use swc_core::ecma::{transforms::testing::test, visit::as_folder};
+use swc_core::ecma::{transforms::testing::test_inline, visit::as_folder};
 
 // console
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {
@@ -24,7 +24,7 @@ test!(
 );
 
 // function console
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {
@@ -43,7 +43,7 @@ test!(
 );
 
 // pass exclude option
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {
@@ -61,7 +61,7 @@ test!(
     r#";() => {console.log('hello');;;;console.table("table")}"#
 );
 
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {
@@ -79,7 +79,7 @@ test!(
     r#";() => {;console.warn("warn");;;console.table("table")}"#
 );
 
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {
@@ -108,7 +108,7 @@ test!(
     }"#
 );
 
-test!(
+test_inline!(
     Default::default(),
     |_| as_folder(RemoveConsole {
         options: Options {

@@ -14,7 +14,7 @@ opt-level = "s"
 
 [dependencies]
 serde = "1"
-serde_json = "1.0"
+serde_json = "1.0.116"
 swc_core = { version = "0.91.3", features = ["ecma_plugin_transform"] }
 
 # .cargo/config defines few alias to build plugin.

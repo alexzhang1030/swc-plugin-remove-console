@@ -3,6 +3,8 @@ name = "swc-plugin-remove-console"
 version = "0.2.0"
 edition = "2021"
 description = "A swc plugin to remove console.log statements"
+license = "MIT"
+repository = "https://github.com/alexzhang1030/swc-plugin-remove-console.git"
 
 [lib]
 crate-type = ["cdylib"]

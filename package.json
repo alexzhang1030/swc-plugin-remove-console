@@ -11,7 +11,7 @@
   "main": "swc_plugin_remove_console.wasm",
   "scripts": {
     "publish:cargo": "cargo publish -p swc-plugin-remove-console --registry crates-io --allow-dirty",
-    "prepublishOnly": "cargo build --target wasm32-wasi --release && cp target/wasm32-wasi/release/swc_plugin_remove_console.wasm .",
+    "prepublishOnly": "cargo build --target wasm32-wasip1 --release && cp target/wasm32-wasip1/release/swc_plugin_remove_console.wasm .",
     "release": "bumpp --commit \"chore: release v%s\" --push --tag && pnpm publish"
   },
   "files": [

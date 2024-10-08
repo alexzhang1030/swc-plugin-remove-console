@@ -2,7 +2,7 @@ use serde::Deserialize;
 use swc_core::{
     common::util::take::Take,
     ecma::{
-        ast::{CallExpr, Ident, MemberExpr, Program, Stmt},
+        ast::{CallExpr, MemberExpr, Program, Stmt},
         visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
     },
     plugin::{plugin_transform, proxies::TransformPluginProgramMetadata},
@@ -24,29 +24,19 @@ pub struct RemoveConsole {
 }
 
 impl RemoveConsole {
-    fn eq(&self, ident: Option<&Ident>, eq_name: &str) -> bool {
-        if let Some(ident) = ident {
-            return ident.sym.eq(eq_name);
-        }
-        false
-    }
-
     fn is_console(&self, expr: &MemberExpr) -> bool {
         let obj = &expr.obj;
-        self.eq(obj.as_ident(), "console")
+        obj.as_ident().map_or(false, |ident| ident.sym == "console")
     }
 
     fn is_specify_subcommand(&self, expr: &MemberExpr) -> bool {
         let prop = &expr.prop;
-        for command in SPECIFY_SUBCOMMAND {
+        return SPECIFY_SUBCOMMAND.iter().any(|command| {
             if self.options.exclude.contains(&command.to_string()) {
-                continue;
+                return false;
             }
-            if self.eq(prop.as_ident(), command) {
-                return true;
-            }
-        }
-        return false;
+            prop.as_ident().map_or(false, |ident| ident.sym == *command)
+        });
     }
 
     fn should_remove(&self, e: &CallExpr) -> bool {

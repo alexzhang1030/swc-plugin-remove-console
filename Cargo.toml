@@ -1,6 +1,6 @@
 [package]
 name = "swc-plugin-remove-console"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 description = "A swc plugin to remove console.log statements"
 license = "MIT"

@@ -18,6 +18,6 @@
     "swc_plugin_remove_console.wasm"
   ],
   "devDependencies": {
-    "bumpp": "^9.0.0"
+    "bumpp": "^10.0.0"
   }
 }

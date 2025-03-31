@@ -3,7 +3,7 @@ use swc_core::{
     common::util::take::Take,
     ecma::{
         ast::{CallExpr, MemberExpr, Program, Stmt},
-        visit::{as_folder, FoldWith, VisitMut, VisitMutWith},
+        visit::{visit_mut_pass, VisitMut, VisitMutWith},
     },
     plugin::{plugin_transform, proxies::TransformPluginProgramMetadata},
 };
@@ -74,5 +74,5 @@ pub fn remove_console(program: Program, metadata: TransformPluginProgramMetadata
                 .expect("failed to deserialize options for remove-console plugin")
         })
         .unwrap_or_default();
-    program.fold_with(&mut as_folder(RemoveConsole { options }))
+    program.apply(&mut visit_mut_pass(RemoveConsole { options }))
 }

@@ -1,10 +1,10 @@
 use crate::{Options, RemoveConsole};
-use swc_core::ecma::{transforms::testing::test_inline, visit::as_folder};
+use swc_core::ecma::{transforms::testing::test_inline, visit::visit_mut_pass};
 
 // console
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             ..Default::default()
         }
@@ -26,7 +26,7 @@ test_inline!(
 // function console
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             ..Default::default()
         }
@@ -45,7 +45,7 @@ test_inline!(
 // pass exclude option
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             exclude: vec!["log".to_string()]
         }
@@ -63,7 +63,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             exclude: vec!["warn".to_string()]
         }
@@ -81,7 +81,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             exclude: vec![
                 "log".to_string(),
@@ -110,7 +110,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveConsole {
+    |_| visit_mut_pass(RemoveConsole {
         options: Options {
             exclude: vec!["foo".to_string(),]
         }

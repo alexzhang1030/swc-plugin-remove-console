@@ -9,65 +9,28 @@ importers:
   .:
     devDependencies:
       bumpp:
-        specifier: ^10.0.0
-        version: 10.3.1
+        specifier: ^11.0.0
+        version: 11.1.0
 
 packages:
 
-  ansis@4.2.0:
-    resolution: {integrity: sha512-HqZ5rWlFjGiV0tDm3UxxgNRqsOTniqoKZu0pIAfh7TZQMGuZK+hH0drySty0si0QXj1ieop4+SkSfPZBPPkHig==}
-    engines: {node: '>=14'}
+  '@quansync/fs@1.0.0':
+    resolution: {integrity: sha512-4TJ3DFtlf1L5LDMaM6CanJ/0lckGNtJcMjQ1NAV6zDmA0tEHKZtxNKin8EgPaVX1YzljbxckyT2tJrpQKAtngQ==}
 
   args-tokenizer@0.3.0:
     resolution: {integrity: sha512-xXAd7G2Mll5W8uo37GETpQ2VrE84M181Z7ugHFGQnJZ50M2mbOv0osSZ9VsSgPfJQ+LVG0prSi0th+ELMsno7Q==}
 
-  bumpp@10.3.1:
-    resolution: {integrity: sha512-cOKPRFCWvHcYPJQAHN6V7Jp/wAfnyqQRXQ+2fgWIL6Gao20rpu7xQ1cGGo1APOfmbQmmHngEPg9Fy7nJ3giRkQ==}
-    engines: {node: '>=18'}
+  bumpp@11.1.0:
+    resolution: {integrity: sha512-jdwOGMyX8JIqpQ0N2RMRR87DHZaoJnUtui5lU9LqFfFK5JC0H8qY9uWqXoa+dEWt/K7rOmmsoyiZB8RBM7RPBQ==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
 
-  c12@3.3.0:
-    resolution: {integrity: sha512-K9ZkuyeJQeqLEyqldbYLG3wjqwpw4BVaAqvmxq3GYKK0b1A/yYQdIcJxkzAOWcNVWhJpRXAPfZFueekiY/L8Dw==}
-    peerDependencies:
-      magicast: ^0.3.5
-    peerDependenciesMeta:
-      magicast:
-        optional: true
-
-  cac@6.7.14:
-    resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
-    engines: {node: '>=8'}
-
-  chokidar@4.0.3:
-    resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
-    engines: {node: '>= 14.16.0'}
-
-  citty@0.1.6:
-    resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
-
-  confbox@0.2.2:
-    resolution: {integrity: sha512-1NB+BKqhtNipMsov4xI/NnhCKp9XG9NamYp5PVm9klAT0fsrNPjaFICsCFhNhwZJKNh7zB/3q8qXz0E9oaMNtQ==}
-
-  consola@3.4.2:
-    resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
-    engines: {node: ^14.18.0 || >=16.10.0}
+  cac@7.0.0:
+    resolution: {integrity: sha512-tixWYgm5ZoOD+3g6UTea91eow5z6AAHaho3g0V9CNSNb45gM8SmflpAc+GRd1InC4AqN/07Unrgp56Y94N9hJQ==}
+    engines: {node: '>=20.19.0'}
 
   defu@6.1.4:
     resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
-
-  destr@2.0.5:
-    resolution: {integrity: sha512-ugFTXCtDZunbzasqBxrK93Ik/DRYsO6S/fedkWEMKqt04xZ4csmnmwGDBAb07QWNaGMAmnTIemsYZCksjATwsA==}
-
-  dotenv@17.2.3:
-    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
-    engines: {node: '>=12'}
-
-  escalade@3.2.0:
-    resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
-    engines: {node: '>=6'}
-
-  exsolve@1.0.7:
-    resolution: {integrity: sha512-VO5fQUzZtI6C+vx4w/4BWJpg3s/5l+6pRQEHzFRM8WFi4XffSP1Z+4qi7GbjWbvRQEbdIco5mIMq+zX4rPuLrw==}
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -78,10 +41,6 @@ packages:
       picomatch:
         optional: true
 
-  giget@2.0.0:
-    resolution: {integrity: sha512-L5bGsVkxJbJgdnwyuheIunkGatUF/zssUoxxjACCseZYAVbaqdh9Tsmmlkl8vYan09H7sbvKt4pS8GqKLBrEzA==}
-    hasBin: true
-
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
@@ -89,175 +48,98 @@ packages:
   jsonc-parser@3.3.1:
     resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
-  node-fetch-native@1.6.7:
-    resolution: {integrity: sha512-g9yhqoedzIUm0nTnTqAQvueMPVOuIY16bqgAJJC8XOOubYFNwz6IER9qs0Gq2Xd0+CecCKFjtdDTMA4u4xG06Q==}
+  package-manager-detector@1.7.0:
+    resolution: {integrity: sha512-xg1eHpwYL/D/HEdWw2goFZP6vV0FH7W+PZ5rFkGjdIDLtxq7EkzBUeT3m+lndYCt8wKbmofUu1MUdMCXkCk9ZQ==}
 
-  nypm@0.6.2:
-    resolution: {integrity: sha512-7eM+hpOtrKrBDCh7Ypu2lJ9Z7PNZBdi/8AT3AX8xoCj43BBVHD0hPSTEvMtkMpfs8FCqBGhxB+uToIQimA111g==}
-    engines: {node: ^14.16.0 || >=16.10.0}
-    hasBin: true
-
-  ohash@2.0.11:
-    resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
-
-  package-manager-detector@1.4.0:
-    resolution: {integrity: sha512-rRZ+pR1Usc+ND9M2NkmCvE/LYJS+8ORVV9X0KuNSY/gFsp7RBHJM/ADh9LYq4Vvfq6QkKrW6/weuh8SMEtN5gw==}
-
-  pathe@2.0.3:
-    resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
-
-  perfect-debounce@2.0.0:
-    resolution: {integrity: sha512-fkEH/OBiKrqqI/yIgjR92lMfs2K8105zt/VT6+7eTjNwisrsh47CeIED9z58zI7DfKdH3uHAn25ziRZn3kgAow==}
-
-  picomatch@4.0.3:
-    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
+  picomatch@4.0.5:
+    resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  pkg-types@2.3.0:
-    resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
+  quansync@1.0.0:
+    resolution: {integrity: sha512-5xZacEEufv3HSTPQuchrvV6soaiACMFnq1H8wkVioctoH3TRha9Sz66lOxRwPK/qZj7HPiSveih9yAyh98gvqA==}
 
-  rc9@2.1.2:
-    resolution: {integrity: sha512-btXCnMmRIBINM2LDZoEmOogIZU7Qe7zn4BpomSKZ/ykbLObuBdvG+mFq11DL6fjH1DRwHhrlgtYWG96bJiC7Cg==}
-
-  readdirp@4.1.2:
-    resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
-    engines: {node: '>= 14.18.0'}
-
-  semver@7.7.2:
-    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
     hasBin: true
 
-  tinyexec@1.0.1:
-    resolution: {integrity: sha512-5uC6DDlmeqiOwCPmK9jMSdOuZTh8bU39Ys6yidB+UTt5hfZUPGAypSgFRiEp+jbi9qH40BLDvy85jIU88wKSqw==}
+  tinyexec@1.2.4:
+    resolution: {integrity: sha512-SHf/r48b7vOrjve9PxJo3MN5v5yuyjHvdUcrQffT3WXMUfnGmHDVbC4k3sHJaJTgZCwpUplIaAo5ANtMyp3YHg==}
+    engines: {node: '>=18'}
 
-  tinyglobby@0.2.15:
-    resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
+  tinyglobby@0.2.17:
+    resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
-  yaml@2.8.1:
-    resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
+  unconfig-core@7.5.0:
+    resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
+
+  unconfig@7.5.0:
+    resolution: {integrity: sha512-oi8Qy2JV4D3UQ0PsopR28CzdQ3S/5A1zwsUwp/rosSbfhJ5z7b90bIyTwi/F7hCLD4SGcZVjDzd4XoUQcEanvA==}
+
+  yaml@2.9.0:
+    resolution: {integrity: sha512-2AvhNX3mb8zd6Zy7INTtSpl1F15HW6Wnqj0srWlkKLcpYl/gMIMJiyuGq2KeI2YFxUPjdlB+3Lc10seMLtL4cA==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
 snapshots:
 
-  ansis@4.2.0: {}
+  '@quansync/fs@1.0.0':
+    dependencies:
+      quansync: 1.0.0
 
   args-tokenizer@0.3.0: {}
 
-  bumpp@10.3.1:
+  bumpp@11.1.0:
     dependencies:
-      ansis: 4.2.0
       args-tokenizer: 0.3.0
-      c12: 3.3.0
-      cac: 6.7.14
-      escalade: 3.2.0
+      cac: 7.0.0
       jsonc-parser: 3.3.1
-      package-manager-detector: 1.4.0
-      semver: 7.7.2
-      tinyexec: 1.0.1
-      tinyglobby: 0.2.15
-      yaml: 2.8.1
-    transitivePeerDependencies:
-      - magicast
+      package-manager-detector: 1.7.0
+      semver: 7.8.5
+      tinyexec: 1.2.4
+      tinyglobby: 0.2.17
+      unconfig: 7.5.0
+      yaml: 2.9.0
 
-  c12@3.3.0:
-    dependencies:
-      chokidar: 4.0.3
-      confbox: 0.2.2
-      defu: 6.1.4
-      dotenv: 17.2.3
-      exsolve: 1.0.7
-      giget: 2.0.0
-      jiti: 2.6.1
-      ohash: 2.0.11
-      pathe: 2.0.3
-      perfect-debounce: 2.0.0
-      pkg-types: 2.3.0
-      rc9: 2.1.2
-
-  cac@6.7.14: {}
-
-  chokidar@4.0.3:
-    dependencies:
-      readdirp: 4.1.2
-
-  citty@0.1.6:
-    dependencies:
-      consola: 3.4.2
-
-  confbox@0.2.2: {}
-
-  consola@3.4.2: {}
+  cac@7.0.0: {}
 
   defu@6.1.4: {}
 
-  destr@2.0.5: {}
-
-  dotenv@17.2.3: {}
-
-  escalade@3.2.0: {}
-
-  exsolve@1.0.7: {}
-
-  fdir@6.5.0(picomatch@4.0.3):
+  fdir@6.5.0(picomatch@4.0.5):
     optionalDependencies:
-      picomatch: 4.0.3
-
-  giget@2.0.0:
-    dependencies:
-      citty: 0.1.6
-      consola: 3.4.2
-      defu: 6.1.4
-      node-fetch-native: 1.6.7
-      nypm: 0.6.2
-      pathe: 2.0.3
+      picomatch: 4.0.5
 
   jiti@2.6.1: {}
 
   jsonc-parser@3.3.1: {}
 
-  node-fetch-native@1.6.7: {}
+  package-manager-detector@1.7.0: {}
 
-  nypm@0.6.2:
+  picomatch@4.0.5: {}
+
+  quansync@1.0.0: {}
+
+  semver@7.8.5: {}
+
+  tinyexec@1.2.4: {}
+
+  tinyglobby@0.2.17:
     dependencies:
-      citty: 0.1.6
-      consola: 3.4.2
-      pathe: 2.0.3
-      pkg-types: 2.3.0
-      tinyexec: 1.0.1
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
-  ohash@2.0.11: {}
-
-  package-manager-detector@1.4.0: {}
-
-  pathe@2.0.3: {}
-
-  perfect-debounce@2.0.0: {}
-
-  picomatch@4.0.3: {}
-
-  pkg-types@2.3.0:
+  unconfig-core@7.5.0:
     dependencies:
-      confbox: 0.2.2
-      exsolve: 1.0.7
-      pathe: 2.0.3
+      '@quansync/fs': 1.0.0
+      quansync: 1.0.0
 
-  rc9@2.1.2:
+  unconfig@7.5.0:
     dependencies:
+      '@quansync/fs': 1.0.0
       defu: 6.1.4
-      destr: 2.0.5
+      jiti: 2.6.1
+      quansync: 1.0.0
+      unconfig-core: 7.5.0
 
-  readdirp@4.1.2: {}
-
-  semver@7.7.2: {}
-
-  tinyexec@1.0.1: {}
-
-  tinyglobby@0.2.15:
-    dependencies:
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-
-  yaml@2.8.1: {}
+  yaml@2.9.0: {}

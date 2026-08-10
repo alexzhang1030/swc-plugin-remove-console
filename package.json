@@ -19,5 +19,13 @@
   ],
   "devDependencies": {
     "bumpp": "^12.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "esbuild",
+      "simple-git-hooks",
+      "unrs-resolver"
+    ]
   }
 }
